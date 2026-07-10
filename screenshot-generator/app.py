@@ -26,7 +26,7 @@ def home():
             )
             response.raise_for_status()
 
-            # Save the returned image
+            # Save returned image
             image_extension = format_ if format_ != "jpeg" else "jpg"
             image_path = os.path.join("static", f"screenshot.{image_extension}")
             with open(image_path, "wb") as f:
