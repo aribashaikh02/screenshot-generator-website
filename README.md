@@ -56,8 +56,3 @@ Notes / caveats:
 - The app expects an environment variable SCREENSHOTBASE_API_KEY (app.py reads it into API_KEY), but app.py also defines a constant SCREENSHOTBASE_BASE_ENDPOINT that already contains a query-string with an apikey and a default url — that looks accidental and should be fixed so the configured API key and dynamic URL are used correctly.
 - Templates include form fields for viewport width/height and format, but app.py currently reads only url, format and full_page; viewport fields are present in the UI but not used.
 - The app writes screenshots to screenshot-generator/static/screenshot.<ext>. Ensure the process has write permission to that directory and sanitize filenames if multiple concurrent users are expected.
-
-## Try asking
-- Can you remove the hardcoded key and default URL in screenshot-generator/app.py and make the code build the ScreenshotBase URL from SCREENSHOTBASE_API_KEY and the form inputs?
-- Do you want viewport_width/viewport_height support implemented in app.py so those form fields actually affect the captured screenshot?
-- Which requirements.txt should be authoritative for deployment (top-level or screenshot-generator/requirements.txt), and would you like a Dockerfile or Procfile added for hosting (gunicorn/Heroku)?
